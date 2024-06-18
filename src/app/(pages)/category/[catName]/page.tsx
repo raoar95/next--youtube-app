@@ -5,7 +5,7 @@ import VideoCard from "@/app/Component/VideoCard";
 
 export const generateStaticParams = async () => {
 
-  // Get all unique categories from the YtVideoData
+  // Get all unique categories from the YtVideoDatas
 
   const categories = [...new Set(YtVideoData.map(video => video.category))];
 
