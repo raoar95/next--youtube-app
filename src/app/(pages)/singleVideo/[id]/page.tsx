@@ -1,18 +1,18 @@
 import { YtVideoData } from "@/app/localData/ytApiData";
 import VideoDetail from "@/app/Component/VideoDetail";
 
-// Define the function to generate static parameters
+// // Define the function to generate static parameters
 
-export const generateStaticParams = async () => {
+// export const generateStaticParams = async () => {
 
-  // Get all IDs from the YtVideoData
+//   // Get all IDs from the YtVideoData
   
-  const paths = YtVideoData.map(video => ({
-    params: { id: video.id.toString() }
-  }));
+//   const paths = YtVideoData.map(video => ({
+//     params: { id: video.id.toString() }
+//   }));
 
-  return paths;
-};
+//   return paths;
+// };
 
 const SingleVideo = ({ params }: any) => {
 

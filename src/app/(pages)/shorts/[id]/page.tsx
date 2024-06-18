@@ -1,19 +1,19 @@
 import ShortsDetail from "@/app/Component/ShortsDetail"
 import { YtShortsData } from "../../../localData/ytApiData"
 
-// Define the function to generate static parameters
+// // Define the function to generate static parameters
 
-export const generateStaticParams = async () => {
+// export const generateStaticParams = async () => {
 
-  // Get all IDs from the YtShortsData
-  
-  const paths = YtShortsData.map(short => ({
-    params: { id: short.id.toString() }
-  }));
+//   // Get all IDs from the YtShortsData
 
-  return paths;
+//   const paths = YtShortsData.map(short => ({
+//     params: { id: short.id.toString() }
+//   }));
 
-};
+//   return paths;
+
+// };
 
 const SingleShorts = ({ params }: any) => {
 

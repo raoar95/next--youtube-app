@@ -1,22 +1,22 @@
 import { YtVideoData } from "@/app/localData/ytApiData";
 import VideoCard from "@/app/Component/VideoCard";
 
-// Define the function to generate static parameters
+// // Define the function to generate static parameters
 
-export const generateStaticParams = async () => {
+// export const generateStaticParams = async () => {
 
-  // Get all unique categories from the YtVideoDatas
+//   // Get all unique categories from the YtVideoDatas
 
-  const categories = [...new Set(YtVideoData.map(video => video.category))];
+//   const categories = [...new Set(YtVideoData.map(video => video.category))];
 
-  // Create paths for each category
+//   // Create paths for each category
 
-  const paths = categories.map(catName => ({
-    params: { catName }
-  }));
+//   const paths = categories.map(catName => ({
+//     params: { catName }
+//   }));
 
-  return paths;
-};
+//   return paths;
+// };
 
 const VideoCategory = ({ params }: any) => {
 
