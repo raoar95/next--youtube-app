@@ -2,13 +2,8 @@
 const nextConfig = {
     output: 'export',
     images: {
-       remotePatterns: [
-          {
-            protocol: 'https',
-            hostname: '**',
-          },
-        ],
-    },
+      unoptimized: true, // Disable Image Optimization API
+  },
 }
 
 export default nextConfig;

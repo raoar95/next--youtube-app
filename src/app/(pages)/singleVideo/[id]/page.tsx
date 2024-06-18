@@ -1,28 +1,41 @@
 import { YtVideoData } from "@/app/localData/ytApiData";
 import VideoDetail from "@/app/Component/VideoDetail";
 
-const SingleVideo = ( { params }: any ) => {
+// Define the function to generate static parameters
 
-   // FILTERING SINGLE VIDEOS
+export const generateStaticParams = async () => {
 
-   const paramsNumId = Number(params.id)
-
-   const filtVidData = YtVideoData.filter((curElem) => {
-       return curElem.id === paramsNumId;
-   });
-
-   console.log(filtVidData);
-   
-   return (
-
-   <VideoDetail 
-     thumbnail={filtVidData[0].thumbnail}
-     title={filtVidData[0].title}
-   />
-
-   )
-
-
-  }
+  // Get all IDs from the YtVideoData
   
-  export default SingleVideo;
+  const paths = YtVideoData.map(video => ({
+    params: { id: video.id.toString() }
+  }));
+
+  return paths;
+};
+
+const SingleVideo = ({ params }: any) => {
+
+  // FILTERING SINGLE VIDEOS
+
+  const paramsNumId = Number(params.id);
+
+  const filtVidData = YtVideoData.filter((curElem) => {
+    return curElem.id === paramsNumId;
+  });
+
+  // Check if filtVidData is empty
+
+  if (filtVidData.length === 0) {
+    return <div>No video found</div>;
+  }
+
+  return (
+    <VideoDetail 
+      thumbnail={filtVidData[0].thumbnail}
+      title={filtVidData[0].title}
+    />
+  );
+};
+
+export default SingleVideo;

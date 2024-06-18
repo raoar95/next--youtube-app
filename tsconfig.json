@@ -19,8 +19,18 @@
     ],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "target": "es2015",  // Ensures support for iteration over Set
+    "downlevelIteration": true // Enables iteration support for older targets
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/page.tsx", "src/app/(pages)/singleVideo/[id]/page.tsx", "src/app/Component/productSlider.jsx"],
+  "include": [
+    "next-env.d.ts", 
+    "**/*.ts", 
+    "**/*.tsx", 
+    ".next/types/**/*.ts", 
+    "src/app/page.tsx", 
+    "src/app/(pages)/singleVideo/[id]/page.tsx", 
+    "src/app/Component/productSlider.jsx"
+  ],
   "exclude": ["node_modules"]
 }
