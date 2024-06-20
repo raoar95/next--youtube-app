@@ -26,6 +26,7 @@ const VideoDetail = ({ vidKey, channelLogo, title, channelName, category }: any)
               className="w-full h-full"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
             ></iframe>
           </div>
           <div className="text-white font-bold text-sm md:text-xl mt-4">
