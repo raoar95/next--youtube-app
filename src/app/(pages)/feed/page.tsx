@@ -12,6 +12,8 @@ const FeedPage = () => {
 
       <div className="w-full">
 
+        {/*.....SHORTS SEC.....*/}
+
         <h4 className="font-bold text-[20px]">
           <SiYoutubeshorts className="inline text-[28px] text-red-600 pr-[8px] cursor-pointer" />
           Shorts
@@ -39,7 +41,11 @@ const FeedPage = () => {
         />
           
       </div>
+      
       <hr className="my-[12px] border-white/[0.2]" />
+
+      {/*.....VIDEO SEC.....*/}
+
       <div className="flex justify-between items-start flex-wrap gap-y-[16px]">
 
       {YtVideoData.map((curElem) => {

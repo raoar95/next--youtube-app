@@ -1,12 +1,10 @@
 import Link from "next/link";
-import Image from "next/image";
-import { BsFillCheckCircleFill } from "react-icons/bs";
 
 const VideoCard = ({ videoId, title, thumbnail, channelName, channelLogo, videoLength, views, duration }: any) => {
 
   return (
 
-    <Link href={`singleVideo/${videoId}`} className="shrink-0 lg:w-[24%] md:w-[32%] sm:w-[49%] xs:w-full overflow-hidden" key={ videoId }>
+    <Link href={`/singleVideo/${videoId}`} className="shrink-0 lg:w-[24%] md:w-[32%] sm:w-[49%] xs:w-full overflow-hidden" key={ videoId }>
 
       {/*.....CARD TOP SEC.....*/}
       
@@ -61,5 +59,3 @@ const VideoCard = ({ videoId, title, thumbnail, channelName, channelLogo, videoL
 };
 
 export default VideoCard;
-
-

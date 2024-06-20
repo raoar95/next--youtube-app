@@ -31,9 +31,13 @@ const SingleVideo = ({ params }: any) => {
   }
 
   return (
-    <VideoDetail 
+    <VideoDetail
+      vidKey={filtVidData[0].id} 
       thumbnail={filtVidData[0].thumbnail}
       title={filtVidData[0].title}
+      channelName={filtVidData[0].channel}
+      channelLogo={filtVidData[0].chLogo}
+      category={filtVidData[0].category}
     />
   );
 };

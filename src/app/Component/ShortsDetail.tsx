@@ -4,12 +4,14 @@ import { IoIosShareAlt } from "react-icons/io";
 
 const ShortsDetail = ( { thumbnail, channelLogo, title, channelName } : any ) => {
   return (
-    <div className="w-[326px] flex relative font-medium">
+    <div className="w-full xs:h-[calc(100vh-3.5rem)] sm:w-[326px] sm:h-auto flex relative font-medium">
+
       <img
         src={thumbnail}
-        className="rounded-[16px]"
+        className="rounded-[16px] w-full"
         alt=""
       />
+
       <div className="flex flex-col justify-end items-center ml-3 absolute right-[12px] bottom-[20px] sm:right-[-65px]">
         <div className="mb-[12px] text-center">
           <div className="flex items-center justify-center h-[50px] w-[50px] mb-[2px]  rounded-full bg-[#303030]/[0.6] hover:bg-[#303030]/[1]">
@@ -46,6 +48,7 @@ const ShortsDetail = ( { thumbnail, channelLogo, title, channelName } : any ) =>
       </div>
        <p className="line-clamp-2 text-ellipsis">{title}</p>
       </div>
+      
     </div>
   );
 };

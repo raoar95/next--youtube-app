@@ -1,67 +1,92 @@
 import { AiOutlineLike } from "react-icons/ai";
+import { IoIosShareAlt } from "react-icons/io";
+import { BiDislike } from "react-icons/bi";
+import { YtVideoData } from "../localData/ytApiData";
+import SuggestVidCard from "./suggestedVidCard";
 
-const VideoDetail = ({ channelLogo, title, thumbnail }: any) => {
+const VideoDetail = ({ vidKey, channelLogo, title, channelName, category }: any) => {
 
-    return (
+  // FILTERING VIDEOS OF SAME CATEGORY BUT DIFFERENT ID
 
-        <div className="flex justify-center flex-row h-[calc(100%-56px)]">
-            <div className="w-full max-w-[1280px] flex flex-col lg:flex-row">
-                <div className="flex flex-col lg:w-[calc(100%-350px)] xl:w-[calc(100%-400px)] px-4 py-3 lg:py-6 overflow-y-auto">
-                    <div className="h-[200px] md:h-[400px] lg:h-[400px] xl:h-[550px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0 overflow-hidden">
-                        {/* <ReactPlayer
-                            url={`https://www.youtube.com/watch?v=${id}`}
-                            controls
-                            width="100%"
-                            height="100%"
-                            style={{ backgroundColor: "#000000" }}
-                            playing={true}
-                        /> */}
-                        <img src={thumbnail} alt="" />
-                    </div>
-                    <div className="text-white font-bold text-sm md:text-xl mt-4 line-clamp-2">
-                        {/* {video?.title} */}
-                    </div>
-                    <div className="flex justify-between flex-col md:flex-row mt-4">
-                        <div className="flex">
-                            <div className="flex items-start">
-                                <div className="flex h-11 w-11 rounded-full overflow-hidden">
-                                    <img
-                                        className="h-full w-full object-cover"
-                                        src=""
-                                    />
-                                </div>
-                            </div>
-                            <div className="flex flex-col ml-3">
-                                <p className="text-white text-md font-semibold flex items-center">
-                                    {title}
-                                </p>
-                                <div className="text-white/[0.7] text-sm">
-                                {channelLogo}
-                                </div>
-                            </div>
-                        </div>
-                        <div className="flex text-white mt-4 md:mt-0">
-                            <div className="flex items-center justify-center h-11 px-6 rounded-3xl bg-white/[0.15]">
-                                <AiOutlineLike className="text-xl text-white mr-2" /> 1.1K
-                            </div>
-                        </div>
-                    </div>
+  const filtVidData = YtVideoData.filter((curElem) => {
+    return curElem.category === category && curElem.id !== vidKey;
+  });
+
+  return (
+
+    <div className="flex justify-center flex-row">
+      <div className="w-full flex flex-col md:flex-row gap-4 max-w-[1400px] p-[20px]">
+
+       {/*.....VIDEO DETAIL SEC.....*/} 
+
+        <div className="flex flex-col p-0 md:pl-[65px] lg:pr-0 w-full min-w-[50%] overflow-y-auto">
+          <div className="h-[200px] sm:h-[400px] xl:h-[500px] lg:ml-0 lg:mr-0 overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/fazzZmEC-LI?si=HZjjjjXYI3LsOV_0"
+              className="w-full h-full"
+              title="YouTube video player"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            ></iframe>
+          </div>
+          <div className="text-white font-bold text-sm md:text-xl mt-4">
+            <p className="text-white text-md font-semibold line-clamp-2 text-ellipsis">
+              {title}
+            </p>
+          </div>
+          <div className="flex justify-between flex-col md:flex-row mt-4 items-center">
+            <div className="flex items-center justify-between lg:justify-normal gap-4 w-full lg:w-auto">
+              <div className="flex items-center gap-2">
+                <div className="flex h-11 w-11 rounded-full overflow-hidden">
+                  <img
+                    className="h-full w-full object-cover"
+                    src={channelLogo}
+                  />
                 </div>
-                <div className="flex flex-col py-6 px-4 overflow-y-auto lg:w-[350px] xl:w-[400px]">
-                    {/* {relatedVideos?.contents?.map((item, index) => {
-                        if (item?.type !== "video") return false;
-                        return (
-                            <SuggestionVideoCard
-                                key={index}
-                                video={item?.video}
-                            />
-                        );
-                    })} */}
-                </div>
+                <p className="text-[16px] font-medium">{channelName}</p>
+              </div>
+              <button className="h-[36px] bg-[#f1f1f1] text-[#0f0f0f] px-[16px] rounded-[18px] font-medium hover:opacity-80">
+                Subscribe
+              </button>
             </div>
+            <div className="flex text-white mt-4 md:mt-0 gap-2 w-full lg:w-auto">
+              <div className="flex items-center bg-[#303030]/[0.6] rounded-3xl">
+                <div className="flex items-center justify-center h-10 px-4 rounded-l-3xl cursor-pointer hover:bg-[#303030]/[0.8]">
+                  <AiOutlineLike className="text-xl text-white mr-2" /> 1.1K
+                </div>{" "}
+                |
+                <div className="flex items-center justify-center h-10 px-4 rounded-r-3xl cursor-pointer hover:bg-[#303030]/[0.8]">
+                  <BiDislike className="text-xl text-white mr-2" />
+                </div>
+              </div>
+              <div className="flex items-center justify-center h-10 px-4 rounded-3xl bg-[#303030]/[0.6] cursor-pointer hover:bg-[#303030]/[0.8]">
+                <IoIosShareAlt className="text-xl text-white mr-2" /> Share
+              </div>
+            </div>
+          </div>
         </div>
-        
-      );
-}
 
-export default VideoDetail
+      {/*.....SUGGESTED VIDEO SEC.....*/} 
+
+        <div className="flex flex-col gap-[5px] md:shrink-0 overflow-y-auto w-full md:w-[420px]">
+          {filtVidData.map((curElem) => {
+            return (
+              <SuggestVidCard
+                videoId={curElem.id}
+                title={curElem.title}
+                thumbnail={curElem.thumbnail}
+                channelName={curElem.channel}
+                channelLogo={curElem.chLogo}
+                videoLength={curElem.vidLength}
+                views={curElem.views}
+                duration={curElem.duration}
+              />
+            );
+          })}
+        </div>
+
+      </div>
+    </div>
+  );
+};
+
+export default VideoDetail;

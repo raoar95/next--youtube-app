@@ -32,7 +32,7 @@ const SingleShorts = ({ params }: any) => {
   }
 
   return (
-    <div className="w-[100vw] sm:h-[652px] grid place-items-center">
+    <div className="h-[calc(100vh-3.5rem)] grid place-items-center">
       <ShortsDetail
         thumbnail={filtShortsData[0].thumbnail}
         title={filtShortsData[0].title}
